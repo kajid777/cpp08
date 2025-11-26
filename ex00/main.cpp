@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <list>
-#include <deque>
 #include "easyfind.hpp"
 
 static void printResult(const std::string &label, int value, bool success)
@@ -19,10 +18,6 @@ int main()
     lst.push_back(42);
     lst.push_back(21);
     lst.push_back(84);
-
-    std::deque<int> deq;
-    for (int i = 1; i <= 3; ++i)
-        deq.push_back(i);
 
     try
     {
@@ -47,19 +42,6 @@ int main()
     catch (const std::exception &e)
     {
         printResult("list", -1, false);
-        std::cout << "  reason: " << e.what() << std::endl;
-    }
-
-    try
-    {
-        easyfind(deq, 3);
-        printResult("deque", 3, true);
-        easyfind(deq, 0);
-        printResult("deque", 0, true);
-    }
-    catch (const std::exception &e)
-    {
-        printResult("deque", 0, false);
         std::cout << "  reason: " << e.what() << std::endl;
     }
 
