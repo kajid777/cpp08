@@ -42,6 +42,13 @@ void Span::addNumber(int value)
     _values.push_back(value);
 }
 
+void Span::addNumber(const std::vector<int> &values)
+{
+    if (_values.size() + values.size() > _capacity)
+        throw std::out_of_range("Span is full");
+    _values.insert(_values.end(), values.begin(), values.end());
+}
+
 unsigned int Span::shortestSpan() const
 {
     if (_values.size() < 2)

@@ -27,6 +27,7 @@ public:
     ~Span();
 
     void addNumber(int value);
+    void addNumber(const std::vector<int> &values);
 
     unsigned int shortestSpan() const;
     unsigned int longestSpan() const;
