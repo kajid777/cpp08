@@ -14,7 +14,6 @@
 
 Span::Span(unsigned int n) : _capacity(n), _values()
 {
-    _values.reserve(n);
 }
 
 Span::Span(const Span &other) : _capacity(other._capacity), _values(other._values)

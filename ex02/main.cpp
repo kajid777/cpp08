@@ -1,11 +1,12 @@
 #include <iostream>
+#include <deque>
 #include <list>
 #include "MutantStack.hpp"
 
 static void printStack(const MutantStack<int> &mstack, const std::string &label)
 {
     std::cout << label << ":";
-    for (MutantStack<int>::const_iterator it = mstack.begin(); it != mstack.end(); ++it)
+    for (std::deque<int>::const_iterator it = mstack.begin(); it != mstack.end(); ++it)
         std::cout << " " << *it;
     std::cout << std::endl;
 }
@@ -29,12 +30,6 @@ int main()
 
     // Iterate forward
     printStack(mstack, "forward iteration");
-
-    // Iterate backward
-    std::cout << "reverse iteration:";
-    for (MutantStack<int>::reverse_iterator rit = mstack.rbegin(); rit != mstack.rend(); ++rit)
-        std::cout << " " << *rit;
-    std::cout << std::endl;
 
     // Compare with standard container
     std::list<int> lst(mstack.begin(), mstack.end());
